@@ -28,5 +28,10 @@ namespace TheatreBooking
             mainFrame.Navigate(new AuthorizationPage());
 
         }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+        }
     }
 }

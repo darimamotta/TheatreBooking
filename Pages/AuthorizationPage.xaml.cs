@@ -40,13 +40,14 @@ namespace TheatreBooking
             Client client = TheatreContext.Instance.Clients.FirstOrDefault(x=>x.Login == login&& x.Password == password);            
             if (client != null)
             {
-
+                
             }
             else
             {
                 Administrrator administrator = TheatreContext.Instance.Administrators.FirstOrDefault(x=>x.Login == login&&x.Password == password);
                 if (administrator != null)
                 {
+                    Manager.MainFrame.Navigate(new AdminPage());
 
                 }
                 else

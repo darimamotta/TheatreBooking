@@ -12,8 +12,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Frame Grid.Row="1" Name="mainFrame"></Frame>
-        
+        <Frame Grid.Row="1" Name="mainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Button Content ="Back" Name="ButtonBack" Click="ButtonBack_Click"></Button>        
 
     </Grid>
 </Window>
