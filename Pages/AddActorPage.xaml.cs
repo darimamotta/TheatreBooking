@@ -17,26 +17,28 @@ using TheatreBooking.Model;
 namespace TheatreBooking.Pages
 {
     /// <summary>
-    /// Interaction logic for PageAddGenre.xaml
+    /// Interaction logic for AddActorPage.xaml
     /// </summary>
-    public partial class PageAddGenre : Page
+    public partial class AddActorPage : Page
     {
-        private Genre genre = new Genre();
-        public PageAddGenre(Genre genre=null)
+        private Actor actor = new Actor();
+        public AddActorPage(Actor actor=null)
         {
             InitializeComponent();
-            if (genre != null )
+            if (actor != null )
             {
-                this.genre = genre;
+                this.actor = actor;
             }
-            DataContext = this.genre;
+            DataContext = actor;
         }
-         
+
         private void Button_AddGenre_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            if (string.IsNullOrEmpty(genre.Title))
-                stringBuilder.AppendLine("Ukazhite nazvanie genra");
+            if (string.IsNullOrEmpty(actor.Name))
+                stringBuilder.AppendLine("Ukazhite imya actera");
+            if(string.IsNullOrEmpty(actor.Surname))
+                stringBuilder.AppendLine("Ukazhite familiu actera");
             if (stringBuilder.Length > 0)
             {
                 MessageBox.Show(stringBuilder.ToString());
@@ -44,13 +46,13 @@ namespace TheatreBooking.Pages
             }
             else
             {
-                if (genre.Id == 0)
-                {   
-                    TheatreContext.Instance.Genres.Add(genre);
+                if (actor.Id == 0)
+                {
+                    TheatreContext.Instance.Actors.Add(actor);
                 }
-                      
-                    TheatreContext.Instance.SaveChanges();
-                    Manager.MainFrame.GoBack();            
+
+                TheatreContext.Instance.SaveChanges();
+                Manager.MainFrame.GoBack();
 
             }
 

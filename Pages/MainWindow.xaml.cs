@@ -33,5 +33,17 @@ namespace TheatreBooking
         {
             Manager.MainFrame.GoBack();
         }
+
+        private void mainFrame_ContentRendered(object sender, EventArgs e)
+        {
+            if(Manager.MainFrame.CanGoBack) 
+            {
+                ButtonBack.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ButtonBack.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }
