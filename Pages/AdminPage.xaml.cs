@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheatreBooking.Pages;
 
 namespace TheatreBooking
 {
@@ -27,7 +28,7 @@ namespace TheatreBooking
 
         private void btnSpectacle_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new SpectaclePage());
         }
 
         private void btnAfisha_Click(object sender, RoutedEventArgs e)
@@ -37,7 +38,7 @@ namespace TheatreBooking
 
         private void btnActor_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new ActorPage());
         }
 
         private void btnGenre_Click(object sender, RoutedEventArgs e)
@@ -47,7 +48,7 @@ namespace TheatreBooking
 
         private void btnSaal_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new SaalPage());
         }
     }
 }

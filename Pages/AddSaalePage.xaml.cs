@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,28 +19,33 @@ using TheatreBooking.Model;
 namespace TheatreBooking.Pages
 {
     /// <summary>
-    /// Interaction logic for AddActorPage.xaml
+    /// Interaction logic for AddSaalePage.xaml
     /// </summary>
-    public partial class AddActorPage : Page
+    public partial class AddSaalePage : Page
     {
-        private Actor actor = new Actor();
-        public AddActorPage(Actor actor=null)
+        private Saal saal = new Saal();
+        public AddSaalePage(Saal saal=null)
         {
             InitializeComponent();
-            if (actor != null )
+            
+            if (saal != null)
             {
-                this.actor = actor;
+                this.saal = saal;
             }
-            DataContext = this.actor;
+            DataContext = this.saal;
         }
 
-        private void Button_AddGenre_Click(object sender, RoutedEventArgs e)
+      
+
+        private void Button_AddSaal_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            if (string.IsNullOrEmpty(actor.Name))
-                stringBuilder.AppendLine("Ukazhite imya actera");
-            if(string.IsNullOrEmpty(actor.Surname))
-                stringBuilder.AppendLine("Ukazhite familiu actera");
+            if (string.IsNullOrEmpty(saal.Name))
+                stringBuilder.AppendLine("Ukazhite imya zala");
+            if ((saal.PlacesInLine)<0)
+                stringBuilder.AppendLine("Ukazhite mesto v ryadu");
+            if ((saal.Lines)<0)
+                stringBuilder.AppendLine("Ukazhite ryad");
             if (stringBuilder.Length > 0)
             {
                 MessageBox.Show(stringBuilder.ToString());
@@ -46,19 +53,18 @@ namespace TheatreBooking.Pages
             }
             else
             {
-                if (actor.Id == 0)
+                if (saal.Id == 0)
                 {
-                    TheatreContext.Instance.Actors.Add(actor);
+                    TheatreContext.Instance.Saal.Add(saal);
                 }
 
                 TheatreContext.Instance.SaveChanges();
                 Manager.MainFrame.GoBack();
 
             }
-
         }
 
-        private void Button_CancelGenre_Click(object sender, RoutedEventArgs e)
+        private void Button_CancelSaal_Click(object sender, RoutedEventArgs e)
         {
 
         }

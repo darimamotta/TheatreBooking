@@ -17,49 +17,48 @@ using TheatreBooking.Model;
 namespace TheatreBooking.Pages
 {
     /// <summary>
-    /// Interaction logic for ActorPage.xaml
+    /// Interaction logic for SaalPage.xaml
     /// </summary>
-    public partial class ActorPage : Page
+    public partial class SaalPage : Page
     {
-        public ActorPage()
+        public SaalPage()
         {
             InitializeComponent();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddActorPage());
+            Manager.MainFrame.Navigate(new AddSaalePage());
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var removeActor = GridActor.SelectedItems.Cast<Actor>().ToList();
-            if (removeActor.Count > 0)
+            var removeSaal = GridSaal.SelectedItems.Cast<Saal>().ToList();
+            if (removeSaal.Count > 0)
             {
-                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeActor.Count} elementi", "Udalenie",
+                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeSaal.Count} elementi", "Udalenie",
                     MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    TheatreContext.Instance.Actors.RemoveRange(removeActor);
+                    TheatreContext.Instance.Saal.RemoveRange(removeSaal);
                     TheatreContext.Instance.SaveChanges();
-                    GridActor.ItemsSource = TheatreContext.Instance.Genres.ToList();
+                    GridSaal.ItemsSource = TheatreContext.Instance.Saal.ToList();
                 }
             }
-
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            Actor actor = (sender as Button).DataContext as Actor;
-            Manager.MainFrame.Navigate(new AddActorPage(actor));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if(Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible)
             {
-                GridActor.ItemsSource = TheatreContext.Instance.Actors.ToList();
+                GridSaal.ItemsSource = TheatreContext.Instance.Saal.ToList();
 
             }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Saal saal = (sender as Button).DataContext as Saal;
+            Manager.MainFrame.Navigate(new AddSaalePage(saal));
         }
     }
 }

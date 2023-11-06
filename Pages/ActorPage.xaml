@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TheatreBooking.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ActorPage">
+      Title="ActorPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
        

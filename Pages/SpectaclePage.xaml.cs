@@ -17,47 +17,40 @@ using TheatreBooking.Model;
 namespace TheatreBooking.Pages
 {
     /// <summary>
-    /// Interaction logic for ActorPage.xaml
+    /// Interaction logic for SpectaclePage.xaml
     /// </summary>
-    public partial class ActorPage : Page
+    public partial class SpectaclePage : Page
     {
-        public ActorPage()
+        public SpectaclePage()
         {
             InitializeComponent();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddActorPage());
+            Manager.MainFrame.Navigate(new AddSpectaclePage());
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var removeActor = GridActor.SelectedItems.Cast<Actor>().ToList();
-            if (removeActor.Count > 0)
+            var removeSpectacle = GridSpectacle.SelectedItems.Cast<Spectacle>().ToList();
+            if (removeSpectacle.Count > 0)
             {
-                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeActor.Count} elementi", "Udalenie",
+                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeSpectacle.Count} elementi", "Udalenie",
                     MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    TheatreContext.Instance.Actors.RemoveRange(removeActor);
+                    TheatreContext.Instance.Spectacles.RemoveRange(removeSpectacle);
                     TheatreContext.Instance.SaveChanges();
-                    GridActor.ItemsSource = TheatreContext.Instance.Genres.ToList();
+                    GridSpectacle.ItemsSource = TheatreContext.Instance.Spectacles.ToList();
                 }
             }
-
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            Actor actor = (sender as Button).DataContext as Actor;
-            Manager.MainFrame.Navigate(new AddActorPage(actor));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if(Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible)
             {
-                GridActor.ItemsSource = TheatreContext.Instance.Actors.ToList();
+                GridSpectacle.ItemsSource = TheatreContext.Instance.Spectacles.ToList();
 
             }
         }
