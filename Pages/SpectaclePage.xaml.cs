@@ -54,5 +54,11 @@ namespace TheatreBooking.Pages
 
             }
         }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Spectacle spectacle = (sender as Button).DataContext as Spectacle;
+            Manager.MainFrame.Navigate(new AddSpectaclePage(spectacle));
+        }
     }
 }

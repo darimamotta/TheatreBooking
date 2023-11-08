@@ -15,6 +15,7 @@
         <RowDefinition></RowDefinition>
          <RowDefinition Height="200" ></RowDefinition>
         <RowDefinition></RowDefinition>
+        <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
@@ -24,15 +25,32 @@
         <TextBlock Grid.Row ="1" Grid.Column="0" Text="Genre" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBlock Grid.Row ="2" Grid.Column="0" Text="Price" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Height="30" Margin ="0,0,100,0" Text="{Binding Title}"></TextBox>
-        <ComboBox Grid.Row="1" Grid.Column="1" Height="30" Margin ="0,0,100,0" DisplayMemberPath="Title" SelectedItem="{Binding Genre}"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="1" Height="30" Margin ="0,0,100,0" DisplayMemberPath="Title" Name ="ComboBoxGenre" SelectedItem="{Binding Genre}"></ComboBox>
        
         <TextBox Grid.Row="2" Grid.Column="1" Height="30" Margin ="0,0,100,0" Text="{Binding Price}"></TextBox>
-        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-            <Button Width ="100" Margin ="10,10,100,10 " Content="Add" Click="Button_AddSaal_Click"></Button>
-            <Button Width ="100" Margin ="10,10,100,10 " Content="Cancel" Click="Button_CancelSaal_Click"></Button>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+             </Grid.ColumnDefinitions>
+            <ComboBox Name ="ComboBoxAddActor" Margin="5" DisplayMemberPath="FullName"></ComboBox>
+            <Button Grid.Row="0" Grid.Column="1" Name="BtnAddActor" Click="BtnAddActorSpc" Content="Add Actor"></Button>
+            <ListBox Grid.Row="1" Grid.Column="0" Name ="LstBoxOfAddedActor" DisplayMemberPath="FullName"></ListBox>
+            
+        </Grid>
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+            <Button Width ="100" Margin ="10,10,100,10 " Content="Add" Click="Button_AddSpectacle_Click"></Button>
+            <Button Width ="100" Margin ="10,10,100,10 " Content="Cancel" Click="Button_CancelSpectacle_Click"></Button>
+            
 
         </StackPanel>
+        <TextBlock Grid.Row ="4" Grid.Column="0" Text="Description" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Height="30" Margin ="0,0,100,0" Text="{Binding Description}"></TextBox>
         
     </Grid>
 </Page>
