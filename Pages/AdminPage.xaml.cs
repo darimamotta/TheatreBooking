@@ -33,7 +33,7 @@ namespace TheatreBooking
 
         private void btnAfisha_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new AfishaPage());
         }
 
         private void btnActor_Click(object sender, RoutedEventArgs e)

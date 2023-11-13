@@ -11,6 +11,7 @@ namespace TheatreBooking.Model
         public int Id { get; set; }
         public virtual Spectacle Spectacle { get; set; }
         public DateTime DateOfSpectacle { get; set; }
+        public TimeSpan? Time {  get; set; }
         public virtual Saal Saal { get; set; }
         public virtual List<Booking> Bookings { get; set; }
         

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,48 +17,47 @@ using TheatreBooking.Model;
 namespace TheatreBooking.Pages
 {
     /// <summary>
-    /// Interaction logic for SpectaclePage.xaml
+    /// Interaction logic for AfishaPage.xaml
     /// </summary>
-    public partial class SpectaclePage : Page
+    public partial class AfishaPage : Page
     {
-        public SpectaclePage()
+        public AfishaPage()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnAddClick(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddSpectaclePage());
+            Manager.MainFrame.Navigate(new AddAfishaPage());
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var removeSpectacle = GridSpectacle.SelectedItems.Cast<Spectacle>().ToList();
-            if (removeSpectacle.Count > 0)
+            var removeAfisha = GridAfisha.SelectedItems.Cast<Afisha>().ToList();
+            if (removeAfisha.Count > 0)
             {
-                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeSpectacle.Count} elementi", "Udalenie",
+                if (MessageBox.Show($"Vi hotite udlalit sleduzushie  {removeAfisha.Count} elementi", "Udalenie",
                     MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    TheatreContext.Instance.Spectacles.RemoveRange(removeSpectacle);
+                    TheatreContext.Instance.Afisha.RemoveRange(removeAfisha);
                     TheatreContext.Instance.SaveChanges();
-                    GridSpectacle.ItemsSource = TheatreContext.Instance.Spectacles.ToList();
+                    GridAfisha.ItemsSource = TheatreContext.Instance.Afisha.ToList();
                 }
             }
         }
-
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                GridSpectacle.ItemsSource = TheatreContext.Instance.Spectacles.Include("Genre").ToList();
+                GridAfisha.ItemsSource = TheatreContext.Instance.Afisha.ToList();
 
             }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Spectacle spectacle = (sender as Button).DataContext as Spectacle;
-            Manager.MainFrame.Navigate(new AddSpectaclePage(spectacle));
+            Afisha afisha = (sender as Button).DataContext as Afisha;
+            Manager.MainFrame.Navigate(new AddAfishaPage(afisha));
         }
     }
 }
