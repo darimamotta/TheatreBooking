@@ -14,6 +14,8 @@ namespace TheatreBooking.Model
         public int Price { get; set; }
         public virtual Genre Genre { get; set; }
         public virtual List<Actor> Actors { get; set; } = new List<Actor>();
+        
+        public override string ToString() { return Title; }
 
     }
 }

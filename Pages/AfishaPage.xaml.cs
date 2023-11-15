@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,7 @@ namespace TheatreBooking.Pages
         {
             if (Visibility == Visibility.Visible)
             {
-                GridAfisha.ItemsSource = TheatreContext.Instance.Afisha.ToList();
+                GridAfisha.ItemsSource = TheatreContext.Instance.Afisha.Include("Spectacle").Include("Saal").ToList();
 
             }
         }

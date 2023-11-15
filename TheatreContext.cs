@@ -14,6 +14,7 @@ namespace TheatreBooking
         public TheatreContext()
         {
             Database.EnsureCreated();
+           // Database.EnsureDeleted();
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

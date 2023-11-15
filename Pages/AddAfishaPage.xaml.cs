@@ -41,7 +41,7 @@ namespace TheatreBooking.Pages
 
         private void Button_CancelAfisha_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.GoBack();
         }
 
         private void Button_AddAfisha_Click(object sender, RoutedEventArgs e)

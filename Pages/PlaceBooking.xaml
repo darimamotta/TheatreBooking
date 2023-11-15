@@ -1,0 +1,28 @@
+﻿<Page x:Class="TheatreBooking.Pages.PlaceBooking"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheatreBooking.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PlaceBooking">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <WrapPanel Grid.Column="0" Name="wrap1" Orientation="Horizontal"></WrapPanel>
+        <StackPanel Grid.Column="1" Name="stack1">
+            <Label Content="Zabronirovannie mesta" HorizontalAlignment="Center"></Label>
+            <ListBox Height="250" Margin="10,10,10,10"></ListBox>
+            <Button x:Name="Book" Content="Book"></Button>
+            <Label Name="BookBtn"></Label>
+        </StackPanel>
+        
+        
+        
+    </Grid>
+</Page>

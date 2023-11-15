@@ -12,5 +12,6 @@ namespace TheatreBooking.Model
         public int Id { get; set; }
         public int PlacesInLine { get; set; }
         public int Lines { get; set; }
+        public override string ToString() { return Name; }
     }
 }

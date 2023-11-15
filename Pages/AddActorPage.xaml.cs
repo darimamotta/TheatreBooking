@@ -60,7 +60,7 @@ namespace TheatreBooking.Pages
 
         private void Button_CancelGenre_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.GoBack();
         }
     }
 }

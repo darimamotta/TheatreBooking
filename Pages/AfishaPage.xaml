@@ -17,7 +17,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Spectacle" Binding="{Binding Spectacle}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Date Of Spectacle" Binding="{Binding DateOfSpectacle}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Saal" Binding="{Binding Saal}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Saal" Binding="{Binding Saal}"  Width="*"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

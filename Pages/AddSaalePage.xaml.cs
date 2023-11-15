@@ -66,7 +66,7 @@ namespace TheatreBooking.Pages
 
         private void Button_CancelSaal_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.GoBack();
         }
     }
 }
