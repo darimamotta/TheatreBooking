@@ -19,5 +19,7 @@ namespace TheatreBooking
        public int Seat { get; set; }
        public bool IsBooked { get; set; }
 
+       public bool IsChosenNow { get; set; }
+
     }
 }

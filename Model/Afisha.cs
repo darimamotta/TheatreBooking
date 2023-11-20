@@ -13,7 +13,7 @@ namespace TheatreBooking.Model
         public DateTime DateOfSpectacle { get; set; }
         public TimeSpan? Time {  get; set; }
         public virtual Saal Saal { get; set; }
-        public virtual List<Booking> Bookings { get; set; }
+        public virtual List<Booking> Bookings { get; set; } = new List<Booking>();
         
     }
 }

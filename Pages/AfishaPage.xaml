@@ -28,6 +28,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Add" Name="btnAdd" Grid.Row="1" Click ="btnAddClick"  HorizontalAlignment="Left"></Button>
+        <Button Content="Book" Name ="btnBook" Grid.Row="1" Click="btnBook_Click" HorizontalAlignment="Center"></Button>
         <Button Content="Delete" Name ="btnDelete" Grid.Row="1" Click="btnDelete_Click" HorizontalAlignment="Right"></Button>
 
 

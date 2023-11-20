@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheatreBooking.Model;
+using TheatreBooking.Pages;
 
 namespace TheatreBooking
 {
@@ -40,7 +41,8 @@ namespace TheatreBooking
             Client client = TheatreContext.Instance.Clients.FirstOrDefault(x=>x.Login == login&& x.Password == password);            
             if (client != null)
             {
-                
+                Manager.CurrentUser = client;
+                Manager.MainFrame.Navigate(new AfishaPage());
             }
             else
             {

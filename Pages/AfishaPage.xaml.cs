@@ -60,5 +60,12 @@ namespace TheatreBooking.Pages
             Afisha afisha = (sender as Button).DataContext as Afisha;
             Manager.MainFrame.Navigate(new AddAfishaPage(afisha));
         }
+
+        private void btnBook_Click(object sender, RoutedEventArgs e)
+        {
+            Afisha afisha = GridAfisha.SelectedItem as Afisha;
+            if (afisha != null)
+                Manager.MainFrame.Navigate(new PlaceBooking(afisha));
+        }
     }
 }

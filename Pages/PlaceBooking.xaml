@@ -14,11 +14,11 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <WrapPanel Grid.Column="0" Name="wrap1" Orientation="Horizontal"></WrapPanel>
+        <WrapPanel Grid.Column="0" Name="wrap1" Orientation="Horizontal" Width="400"></WrapPanel>
         <StackPanel Grid.Column="1" Name="stack1">
             <Label Content="Zabronirovannie mesta" HorizontalAlignment="Center"></Label>
-            <ListBox Height="250" Margin="10,10,10,10"></ListBox>
-            <Button x:Name="Book" Content="Book"></Button>
+            <ListBox Height="250" Name="lstBox1" Margin="10,10,10,10"></ListBox>
+            <Button x:Name="Book" Content="Book" Click="Book_Click"></Button>
             <Label Name="BookBtn"></Label>
         </StackPanel>
         
