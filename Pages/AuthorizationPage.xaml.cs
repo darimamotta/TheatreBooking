@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace TheatreBooking
         {
             string login = txbox_login.Text;
             string password = txbox_password.Text;
-            Client client = TheatreContext.Instance.Clients.FirstOrDefault(x=>x.Login == login&& x.Password == password);            
+            Client client = TheatreContext.Instance.Clients.Include("Bookings").FirstOrDefault(x=>x.Login == login&& x.Password == password);            
             if (client != null)
             {
                 Manager.CurrentUser = client;

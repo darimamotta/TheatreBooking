@@ -13,7 +13,7 @@ namespace TheatreBooking.Model
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public virtual List<Booking> Bookings { get; set; }
+        public virtual List<Booking> Bookings { get; set; }=new List<Booking>();
 
     }
 }

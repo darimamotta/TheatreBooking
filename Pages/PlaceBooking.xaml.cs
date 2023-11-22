@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,7 @@ namespace TheatreBooking.Pages
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (Manager.CurrentUser == null) return;
             Rectangle rectangle = sender as Rectangle;
             TicketInfo ticketInfo = rectangle.Tag as TicketInfo;
             if(!ticketInfo.IsBooked)
@@ -90,7 +92,19 @@ namespace TheatreBooking.Pages
 
         private void Book_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Manager.CurrentUser == null) return;
+            var chosenPlaces = ticketInfos.Where(x=>x.IsChosenNow);
+            foreach(var chosenPlace in chosenPlaces)
+            {
+                Booking booking = new Booking();
+                booking.Afisha = afisha;
+                booking.Line= chosenPlace.Line;
+                booking.Place = chosenPlace.Seat;
+                booking.Client = Manager.CurrentUser;
+                TheatreContext.Instance.Bookings.Add(booking);
+                TheatreContext.Instance.SaveChanges();
+            }
+            Manager.MainFrame.GoBack();
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheatreBooking.Pages;
 
 namespace TheatreBooking
 {
@@ -36,6 +37,11 @@ namespace TheatreBooking
 
         private void mainFrame_ContentRendered(object sender, EventArgs e)
         {
+            if(Manager.CurrentUser == null) { BtnLchCabinet.Visibility = Visibility.Hidden; }
+            else
+            {
+                BtnLchCabinet.Visibility = Visibility.Visible;
+            }
             if(Manager.MainFrame.CanGoBack) 
             {
                 ButtonBack.Visibility = Visibility.Visible;
@@ -44,6 +50,11 @@ namespace TheatreBooking
             {
                 ButtonBack.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void BtnLchCabinet_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new LichnyCabinet());
         }
     }
 }

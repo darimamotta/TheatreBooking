@@ -13,6 +13,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Frame Grid.Row="1" Name="mainFrame" NavigationUIVisibility="Hidden" ContentRendered="mainFrame_ContentRendered"></Frame>
+        <Button Content="Lichny Cabinet" Name="BtnLchCabinet" HorizontalAlignment="Right" Click="BtnLchCabinet_Click"></Button>
         <Button Content ="Back" Name="ButtonBack" Click="ButtonBack_Click"></Button>        
 
     </Grid>
